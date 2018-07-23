@@ -1,0 +1,39 @@
+package TaskFirst;
+
+public class TaskFirst {
+
+    public static void main(String[] args) {
+
+        int[] array = {1, 1, 1, 3, 3, 4, 5, 5, 5, 5, 5, 9, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 9,9,9,9};
+
+        int result = longestContDigit(array);
+
+        System.out.println("the longest continuous sequence in an array is a digit " + result);
+    }
+
+
+    public static int longestContDigit(int[] array) {
+        int currentDigit = 0; // текущая повторяющаяся цифра
+        int currentCount = 1; // повторы для текущей цифры
+
+        int recordCount = 0; // максимальное количество повторов
+        int recordDigit = 0; // цифра с максимальным количеством повторов
+
+
+
+
+        for (int i = 1; i < array.length; i++) {
+
+            if (array[i] == array[i - 1]) {
+                currentDigit = array[i];
+                currentCount++;
+                if (recordCount < currentCount) {
+                    recordDigit = currentDigit;
+                    recordCount = currentCount;
+                }
+            } else currentCount = 1; // сброс количества повторов, т.к. цифра другая
+        }
+        return (recordDigit);
+
+    }
+}
