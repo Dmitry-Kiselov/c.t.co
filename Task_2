@@ -1,0 +1,38 @@
+package TaskTwo;
+
+import java.util.Scanner;
+
+    public class TaskTwo {
+        public static void main(String[] args) {
+            System.out.println("Input numbers, size of Christmas tree");
+            Scanner scanner = new Scanner(System.in);
+            int evenFlag;
+            int baseSize;
+            int iteration;
+            baseSize = scanner.nextInt();
+
+
+            if ((baseSize % 2) == 0) {
+                evenFlag = 1; // base size is even
+                iteration = baseSize / 2; // high of tree
+            } else {
+                evenFlag = 0; // base size is odd
+                iteration = (baseSize / 2) + 1; // high of tree
+            }
+
+
+
+            for (int i = 0; i < iteration; i++) {
+
+                // printing a line
+                for (int space = 1; (iteration - i) - space > 0; space++) {
+                    System.out.print(" ");
+                }
+
+                for (int wildcards = 0; wildcards <= 2*i + evenFlag; wildcards++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    }
